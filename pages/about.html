@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <a href="../index.html" class="logo">Voahirana.</a>
-        <nav class="navbar">
+        <nav class="navbar" id="navbar">
             <a href="../index.html">Accueil</a>
             <a href="about.html" class="active">A propos</a>
             <a href="services.html">Services</a>
@@ -19,6 +19,11 @@
             <a href="skills.html">Compétences</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
     <section class="about">
         <div class="about-content">
@@ -29,6 +34,23 @@
             </div>
         </div>
     </section>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.getElementById('navbar');
+        
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        const navLinks = document.querySelectorAll('.navbar a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
 
